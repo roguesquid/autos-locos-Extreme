@@ -1,4 +1,4 @@
-package autosLocos2;
+package gui;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class application extends JFrame {
+public class Pantalla extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class application extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					application frame = new application();
+					Pantalla frame = new Pantalla();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,9 +29,9 @@ public class application extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public application() {
+	public Pantalla() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 600);
+		setBounds(100, 100, 800, 550);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
