@@ -26,22 +26,6 @@ import javax.swing.ImageIcon;
 public class Pantalla extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Método principal para ejecutar la aplicación.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Pantalla frame = new Pantalla();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	/**
 	 * Crea el marco de la interfaz gráfica.

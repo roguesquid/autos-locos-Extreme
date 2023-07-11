@@ -6,8 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
@@ -36,9 +41,9 @@ public class GenerarPista extends JFrame {
 		contentPane.add(header);
 		header.setLayout(null);
 		
-		JLabel logoLabel = new JLabel("New label");
+		JLabel logoLabel = new JLabel("");
 		logoLabel.setIcon(new ImageIcon("C:\\Users\\luisr\\eclipse-workspace\\autosLocos2\\resources\\logo.png"));
-		logoLabel.setBounds(13, 6, 1061, 84);
+		logoLabel.setBounds(13, 6, 261, 84);
 		header.add(logoLabel);
 		
 		JPanel creditos = new JPanel();
@@ -53,5 +58,29 @@ public class GenerarPista extends JFrame {
 		labelCreditos.setFont(new Font("Public Sans Thin", Font.PLAIN, 20));
 		labelCreditos.setBounds(726, 10, 475, 15);
 		creditos.add(labelCreditos);
+		
+		JPanel content = new JPanel();
+		content.setBackground(new Color(255, 255, 255));
+		content.setBounds(0, 96, 1920, 883);
+		contentPane.add(content);
+		content.setLayout(null);
+		
+		JLabel btnRegresar = new JLabel("New label");
+		btnRegresar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+	             // Cierra el JFrame actual
+	              dispose();
+	                
+	              // Crea una instancia del JFrame pantalla y lo muestra
+	              Pantalla dashboard = new Pantalla();
+	              dashboard.setVisible(true);
+			}
+		});
+		btnRegresar.setIcon(new ImageIcon("C:\\Users\\luisr\\eclipse-workspace\\autosLocos2\\resources\\Group 4.png"));
+		btnRegresar.setBounds(23, 34, 177, 53);
+		content.add(btnRegresar);
+		Cursor cursorHand = new Cursor(Cursor.HAND_CURSOR);
+		btnRegresar.setCursor(cursorHand);
 	}
 }
