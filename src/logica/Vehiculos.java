@@ -2,7 +2,6 @@ package logica;
 
 public class Vehiculos {
 	
-	private boolean juega;
 	private String nombre;
 	private String nombreIngles;
 	private String nombreCoductores;
@@ -118,12 +117,4 @@ public class Vehiculos {
 	public void setTamanoCaucho(String tamanoCaucho) {
 		this.tamanoCaucho = tamanoCaucho;
 	}
-	//-------------------------------------------------------------------------------------------
-	public boolean isJuega() {
-		return juega;
-	}
-
-	public void setJuega(boolean juega) {
-		this.juega = juega;
-	} 
 }

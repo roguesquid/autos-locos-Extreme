@@ -1,5 +1,13 @@
 package logica;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * La clase ListaVehiculos representa una lista enlazada de vehículos.
  */
@@ -109,5 +117,44 @@ public class ListaVehiculos {
 		}
 		return actual;
 	}
+	
+	 /**
+     * Guarda la lista de vehículos en un archivo.
+     *
+     * @param archivo el nombre del archivo donde se guardará la lista.
+     */
+    public void guardarEnArchivo(String archivo) {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
+            List<Vehiculos> vehiculos = new ArrayList<>();
+            Vehiculos actual = primero;
+            while (actual != null) {
+                vehiculos.add(actual);
+                actual = actual.getProx();
+            }
+            out.writeObject(vehiculos);
+            System.out.println("Lista de vehículos guardada en el archivo: " + archivo);
+        } catch (IOException e) {
+            System.out.println("Error al guardar la lista de vehículos en el archivo: " + archivo);
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Lee la lista de vehículos desde un archivo y la carga en la lista.
+     *
+     * @param archivo el nombre del archivo desde donde se cargará la lista.
+     */
+    public void cargarDesdeArchivo(String archivo) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+            List<Vehiculos> vehiculos = (List<Vehiculos>) in.readObject();
+            for (Vehiculos vehiculo : vehiculos) {
+                agregar(vehiculo);
+            }
+            System.out.println("Lista de vehículos cargada desde el archivo: " + archivo);
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al cargar la lista de vehículos desde el archivo: " + archivo);
+            e.printStackTrace();
+        }
+    }
 	
 }

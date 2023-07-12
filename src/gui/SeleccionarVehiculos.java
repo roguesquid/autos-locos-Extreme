@@ -129,28 +129,21 @@ public class SeleccionarVehiculos extends JFrame {
 	
 	/**
 	 * Llena la tabla de vehículos con los datos de la lista.
-	 * Utiliza un renderizador personalizado para mostrar checkboxes en la primera columna.
 	 */
 	private void llenarTabla() {
-	    DefaultTableModel modeloDefault = new DefaultTableModel(
+	    /*DefaultTableModel modeloDefault = new DefaultTableModel(
 	        new String[] {
 	            "Jugara", "Nombre", "Nombre ingles", "Coductores", "Tamano de Caucho",
 	            "Tipo de Caucho", "Velocidad", "Liquidos", "Piedras", "Bombas"
 	        },
 	        logica.appCarreras.lista.contarNodos()
 	    );
-	    tablaVehiculos.setModel(modeloDefault);
+	    tablaVehiculos.setModel(modeloDefault);*/
 
 	    TableModel modeloDatos = tablaVehiculos.getModel();
 	    for (int i = 0; i < logica.appCarreras.lista.contarNodos(); i++) {
 	        Vehiculos vehiculo = logica.appCarreras.lista.obtenerElemento(i);
 
-	        // Renderizador personalizado para mostrar checkboxes en la primera columna
-	        DefaultTableCellRenderer checkboxRenderer = new DefaultTableCellRenderer();
-	        checkboxRenderer.setHorizontalAlignment(JLabel.CENTER);
-	        tablaVehiculos.getColumnModel().getColumn(0).setCellRenderer(checkboxRenderer);
-
-	        modeloDatos.setValueAt(vehiculo.isJuega(), i, 0);
 	        modeloDatos.setValueAt(vehiculo.getNombre(), i, 1);
 	        modeloDatos.setValueAt(vehiculo.getNombreIngles(), i, 2);
 	        modeloDatos.setValueAt(vehiculo.getNombreCoductores(), i, 3);
